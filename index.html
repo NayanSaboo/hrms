@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+        .table {
+            margin-top: 20px;
+        }
+
+        .table th {
+            background: #333;
+            color: #fff;
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myAppCtrl">
+        <button class="btn-success" type="button" value="Add" ng-click="addRow()">Add Row</button>
+        <button class="btn-danger" ng-hide="!row.length" type="button" class="btn btn-danger pull-left" ng-click="remove()" value="Remove">Remove Row </button>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class='table-checkbox'>
+                        <input type='checkbox' ng-model="x.checked" ng-click="selectAll()" class='group-checkable' />
+                    </th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat='x in row track by $index'>
+                    <td>
+                        <input name="all" type="checkbox" ng-model="x.checked" />
+                    </td>
+                    <td>Nayan</td>
+                    <td>Saboo</td>
+                    <td>nayan.saboo@mail.com</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>
